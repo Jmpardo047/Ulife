@@ -1,29 +1,70 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.nav {
+  width: 100vw;
+  height: 10vh;
+  left: 0;
+  top: 0;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 2em;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.main-content{
+  width: 100vw;
+  height: 90vh;
+  display: grid;
+  gap: 2em;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 2em;
+}
+
+.left-menu {
+  width: 8 0%;
+  height: 90%;
+}
+
+.nav-title {
+  color: yellow;
+  font-weight: 700;
+}
+
+
+.sroll {
+  --sb-track-color: #232E33;
+  --sb-thumb-color: #555555;
+  --sb-size: 4px;
+}
+
+.sroll::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+.sroll::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 5px;
+}
+
+.sroll::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 5px;
+  
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
   }
 }
 
