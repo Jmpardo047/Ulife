@@ -1,6 +1,6 @@
 import { AsideLeft } from "./AsideLeft/AsideLeftComponent"
 import { AsideRight } from "./AsideRinght/AsideRightComponent"
-import { CentralBody } from "./CentralBodyComponent"
+import { CentralBody } from "./CentralFeed/CentralBodyComponent"
 
 export const MainContent = () =>{
     return (

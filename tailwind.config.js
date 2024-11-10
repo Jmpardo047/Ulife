@@ -20,6 +20,7 @@ export default {
     maxHeight: {
       '1/2': '50%',
       '1/3': '40vh',
+      '2/3': '70%',
     },},
   },
   plugins: [],
