@@ -6,9 +6,12 @@ export interface Props {
     userName:string;
     content:any[];
     time:string;
+    likes: number;
+    comments: number;
+    shares: Number;
 }
 
-export const FeedItem = ({userPhoto, userName, content, time}:Props) => {
+export const FeedItem = ({userPhoto, userName, content, time, likes, comments, shares}:Props) => {
     return (
         <div className="flex flex-col h-10 w-2/3 h-auto bg-surface pt-3 pb-3 rounded-lg shadow-lg gap-2">
             <FeedProfile 
@@ -22,7 +25,7 @@ export const FeedItem = ({userPhoto, userName, content, time}:Props) => {
             <div className="w-full mt-3">
                 <img src={content[1]} alt=""className="w-full h-full object-contain" />
             </div>
-            <Likes likes={178} comments={351} shares={2.1}/>
+            <Likes likes={likes} comments={comments} shares={shares}/>
         </div>
     )
 }

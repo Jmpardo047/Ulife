@@ -8,7 +8,9 @@ export default {
     extend: {colors: {
       background: "#1e1e1e", // Fondo principal oscuro
       searchBar: "",
-      surface: "#292929", // Fondo de elementos en neumorfismo
+      surface: "#292929",
+      coverSurface: "#393939",
+      coverSurfaceHover: "#555555", // Fondo de elementos en neumorfismo
       shadowLight: "#333333", // Sombra ligera para neumorfismo
       shadowDark: "#121212", // Sombra oscura para neumorfismo
       accent: "#4C9AFF", // Acento principal para botones e iconos interactivos

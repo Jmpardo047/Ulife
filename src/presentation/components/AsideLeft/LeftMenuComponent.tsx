@@ -20,7 +20,7 @@ export const LeftMenu = () =>{
 
             <LeftMenuItem 
                 logo={<UserIcon className="w-8 h-8"/>} 
-                title="Profile"
+                title="Groups"
                 isSelected = {selectedItem == "Profile"}
                 onClick = {() => handleSelect('Profile')}  
             />

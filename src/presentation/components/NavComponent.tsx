@@ -2,15 +2,26 @@ import { Link } from "react-router-dom"
 import { Bars4Icon, BellIcon, ChatBubbleOvalLeftEllipsisIcon, HomeIcon, MagnifyingGlassIcon, UserIcon, UsersIcon, VideoCameraIcon } from '@heroicons/react/24/outline';
 import { useState } from "react";
 
+export interface Props {
+    profileClick: () => void;
+}
 
-export const NavComponent = () => {
-    const [isVisible, setIsVisible] = useState(false)
-    const handleMouseEnter = () =>{
-        setIsVisible(true);
+export const NavComponent = ({profileClick}:Props) => {
+    const [isTooltipVisible, setIsTooltipVisible] = useState("");
+
+    const handleMouseEnter = (icon:string) => {
+      setIsTooltipVisible(icon);
+    };
+  
+    const handleMouseLeave = () => {
+      setIsTooltipVisible("");
+    };
+
+    const handleMenuOpen = () => {
+        setIsTooltipVisible("");
+        profileClick()
     }
-    const handleMouseleave = () =>{
-        setIsVisible(false);
-    }
+
     return (
         <>
             <nav className="top-00 z-50 bg-white dark:bg-surface shadow-xl nav ">
@@ -33,23 +44,38 @@ export const NavComponent = () => {
                     <VideoCameraIcon className="cursor-pointer drop-shadow-md h-7 w-7 text-white-500"/>
                     <MagnifyingGlassIcon className="cursor-pointer drop-shadow-md h-7 w-7 text-white-500" />
                 </div>
-                <div className="flex flex-row-reverse gap-3 ml-auto mr-8">
-                    <div className="rounded-full h-14 w-14 bg-background flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-gray-700">
+                <div className="flex flex-row-reverse gap-3 ml-auto mr-8 relative" onClick={handleMenuOpen}>
+                    <div onMouseEnter={() => handleMouseEnter("profile")} onMouseLeave={() => handleMouseLeave()} className="rounded-full h-14 w-14 bg-background flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-gray-700">
                         <UserIcon className="cursor-pointer drop-shadow-md h-8 w-8 text-white-500" />
-                        {isVisible && (
-                            <span className="">
-                                perfil
-                            </span>
-                        )}
+                        {isTooltipVisible == "profile" && 
+                            <div className="py-0.5 px-2 bg-gray-400 absolute top-14 mt-1 rounded-lg">
+                                <span className="text-xs text-black font-medium">Profile</span>
+                            </div>
+                        }
                     </div>
-                    <div className="rounded-full h-14 w-14 bg-background flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-gray-700">
+                    <div onMouseEnter={() => handleMouseEnter("notifications")} onMouseLeave={handleMouseLeave} className="rounded-full h-14 w-14 bg-background flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-gray-700">
                         <BellIcon className="cursor-pointer drop-shadow-md h-8 w-8 text-white-500" />
+                        {isTooltipVisible == "notifications" && 
+                            <div className="py-0.5 px-2 bg-gray-400 absolute top-14 mt-1 rounded-lg">
+                                <span className="text-xs text-black font-medium">Notifications</span>
+                            </div>
+                        }
                     </div>
-                    <div className="rounded-full h-14 w-14 bg-background flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-gray-700">
+                    <div onMouseEnter={() => handleMouseEnter("messages")} onMouseLeave={() => handleMouseLeave()} className="rounded-full h-14 w-14 bg-background flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-gray-700">
                         <ChatBubbleOvalLeftEllipsisIcon className="cursor-pointer drop-shadow-md h-8 w-8 text-white-500" />
+                        {isTooltipVisible == "messages" && 
+                            <div className="py-0.5 px-2 bg-gray-400 absolute top-14 mt-1 rounded-lg">
+                                <span className="text-xs text-black font-medium">Messages</span>
+                            </div>
+                        }
                     </div>
-                    <div className="rounded-full h-14 w-14 bg-background flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-gray-700">
+                    <div onMouseEnter={() => handleMouseEnter("menu")} onMouseLeave={() => handleMouseLeave()} className="rounded-full h-14 w-14 bg-background flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-gray-700">
                         <Bars4Icon className="cursor-pointer drop-shadow-md h-8 w-8 text-white-500" />
+                        {isTooltipVisible == "menu" && 
+                            <div className="py-0.5 px-2 bg-gray-400 absolute top-14 mt-1 rounded-lg">
+                                <span className="text-xs text-black font-medium">Menu</span>
+                            </div>
+                        }
                     </div>
                 </div>
             </nav>
