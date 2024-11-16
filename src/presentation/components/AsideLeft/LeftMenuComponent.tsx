@@ -27,7 +27,7 @@ export const LeftMenu = () =>{
 
             <LeftMenuItem 
                 logo={<UsersIcon className="w-8 h-8"/>} 
-                title="Friends"
+                title="Study Material"
                 isSelected = {selectedItem == "Friends"}
                 onClick = {() => handleSelect('Friends')} 
             />
