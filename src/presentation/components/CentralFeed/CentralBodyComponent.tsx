@@ -2,7 +2,7 @@ import { UserCircleIcon } from "@heroicons/react/16/solid";
 import { NewPost } from "./NewPostComponent";
 import { FeedItem } from "./FeedItemComponent";
 
-export const CentralBody = () => {
+export const CentralBody:React.FC = () => {
     return (
         <>
             <div className="w-full h-full rounded-3xl flex flex-col items-center justify-start gap-4 overflow-y-scroll sroll scrollbar-short">

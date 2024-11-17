@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { Bars4Icon, BellIcon, ChatBubbleOvalLeftEllipsisIcon, HomeIcon, MagnifyingGlassIcon, UserIcon, UsersIcon, VideoCameraIcon } from '@heroicons/react/24/outline';
 import { useState } from "react";
 
@@ -8,6 +8,8 @@ export interface Props {
 
 export const NavComponent = ({profileClick}:Props) => {
     const [isTooltipVisible, setIsTooltipVisible] = useState("");
+    const [selected, setSelected] = useState("")
+
 
     const handleMouseEnter = (icon:string) => {
       setIsTooltipVisible(icon);
@@ -20,6 +22,15 @@ export const NavComponent = ({profileClick}:Props) => {
     const handleMenuOpen = () => {
         setIsTooltipVisible("");
         profileClick()
+    }
+
+    const navigate = useNavigate()
+
+    const handleNavigation = (path:string) =>{
+        if (selected !== path) {
+            setSelected(path);
+            navigate(`/${path}`); 
+          }
     }
 
     return (
@@ -38,14 +49,34 @@ export const NavComponent = ({profileClick}:Props) => {
                         <MagnifyingGlassIcon className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                     </div>
                 </div>
-                <div className="flex flex-row gap-7">
-                    <HomeIcon className="cursor-pointer drop-shadow-md h-7 w-7 text-white-500"/>
-                    <UsersIcon className="cursor-pointer drop-shadow-md h-7 w-7 text-white-500"/>
-                    <VideoCameraIcon className="cursor-pointer drop-shadow-md h-7 w-7 text-white-500"/>
-                    <MagnifyingGlassIcon className="cursor-pointer drop-shadow-md h-7 w-7 text-white-500" />
+                <div className="flex flex-row">
+                    <div className="flex flex-col gap-2 cursor-pointer items-center rounded-lg w-28" onClick={() => handleNavigation("home")}>
+                        <HomeIcon className="cursor-pointer drop-shadow-md h-7 w-7 text-white-500"/>
+                        <div className={`w-full h-1 bg-yellow-600 rounded-lg transform transition-all duration-200 ${
+                            selected === "home" ? "scale-100 opacity-100" : "scale-0 opacity-0"
+                        }`}></div>
+                    </div>
+                    <div className="flex flex-col gap-2 cursor-pointer items-center rounded-lg w-28" onClick={() => handleNavigation("friends")}>
+                        <UsersIcon className="cursor-pointer drop-shadow-md h-7 w-7 text-white-500"/>
+                        <div className={`w-full h-1 bg-yellow-600 rounded-lg transform transition-all duration-200 ${
+                            selected === "friends" ? "scale-100 opacity-100" : "scale-0 opacity-0"
+                        }`}></div>
+                    </div>
+                    <div className="flex flex-col gap-2 cursor-pointer items-center rounded-lg w-28">
+                        <VideoCameraIcon className="cursor-pointer drop-shadow-md h-7 w-7 text-white-500"/>
+                        <div className={`w-full h-1 bg-yellow-600 rounded-lg transform transition-all duration-200 ${
+                            selected === "videos" ? "scale-100 opacity-100" : "scale-0 opacity-0"
+                        }`}></div>
+                    </div>
+                    <div className="flex flex-col gap-2 cursor-pointer items-center rounded-lg w-28">
+                        <MagnifyingGlassIcon className="cursor-pointer drop-shadow-md h-7 w-7 text-white-500" />
+                        <div className={`w-full h-1 bg-yellow-600 rounded-lg transform transition-all duration-200 ${
+                            selected === "find" ? "scale-100 opacity-100" : "scale-0 opacity-0"
+                        }`}></div>
+                    </div>      
                 </div>
-                <div className="flex flex-row-reverse gap-3 ml-auto mr-8 relative" onClick={handleMenuOpen}>
-                    <div onMouseEnter={() => handleMouseEnter("profile")} onMouseLeave={() => handleMouseLeave()} className="rounded-full h-14 w-14 bg-background flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-gray-700">
+                <div className="flex flex-row-reverse gap-3 ml-auto mr-8 relative">
+                    <div onMouseEnter={() => handleMouseEnter("profile")} onMouseLeave={() => handleMouseLeave()} onClick={handleMenuOpen} className="rounded-full h-14 w-14 bg-background flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-gray-700">
                         <UserIcon className="cursor-pointer drop-shadow-md h-8 w-8 text-white-500" />
                         {isTooltipVisible == "profile" && 
                             <div className="py-0.5 px-2 bg-gray-400 absolute top-14 mt-1 rounded-lg">

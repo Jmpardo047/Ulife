@@ -5,7 +5,7 @@ export interface Props {
 }
 
 export const ProfileContentNav = ({TogglePanel}:Props) => {
-    const [selected, setSelected] = useState("")
+    const [selected, setSelected] = useState("myposts")
 
     const toggleSelection = (item:string):void => {
         setSelected(item)

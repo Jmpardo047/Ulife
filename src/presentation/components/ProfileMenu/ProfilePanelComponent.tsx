@@ -30,7 +30,7 @@ export const ProfilePanel = ({userPhoto, userName}:Props) => {
                     </div>
                 </div>
                 <div className="flex flex-col">
-                    <MenuItem logo={<PlusCircleIcon className="w-7 h-7"/>} title="New Profile"/>
+                    <MenuItem logo={<PlusCircleIcon className="w-7 h-7"/>} title="log in New Profile"/>
                     <MenuItem logo={<UsersIcon className="w-7 h-7"/>} title="See all profiles"/>
                     <MenuItem logo={<UserPlusIcon className="w-7 h-7"/>} title="Sign up"/> 
                     <MenuItem logo={<QuestionMarkCircleIcon className="w-7 h-7"/>} title="help and support"/>

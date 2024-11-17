@@ -4,7 +4,7 @@ import { MyPosts } from "./ContentPanels/MyPostsComponent"
 import { MySubjects } from "./ContentPanels/MysubjectsComponent"
 
 export const ProfilePanelContent = () => {
-    const [panel, setPanel] = useState("")
+    const [panel, setPanel] = useState("myposts")
 
     const toggleSelection = (item:string):void => {
         setPanel(item)
