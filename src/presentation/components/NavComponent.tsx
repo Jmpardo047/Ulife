@@ -35,7 +35,7 @@ export const NavComponent = ({profileClick}:Props) => {
 
     return (
         <>
-            <nav className="top-00 z-50 bg-white dark:bg-surface shadow-xl nav ">
+            <nav className="top-00 z-50 bg-surface shadow-xl nav ">
                 <Link className="link-button" to="/">
                     <h1 className="nav-title">Ulife</h1>
                 </Link>
@@ -44,7 +44,7 @@ export const NavComponent = ({profileClick}:Props) => {
                         <input
                             type="text"
                             placeholder="Search..."
-                            className="w-full shadow-lg py-2 pl-10 pr-4 rounded-full bg-gray-100 dark:bg-background focus:outline-none dark:text-gray-200"
+                            className="w-full shadow-lg py-2 pl-10 pr-4 rounded-full bg-background focus:outline-none text-gray-200"
                         />
                         <MagnifyingGlassIcon className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                     </div>
