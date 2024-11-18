@@ -1,4 +1,4 @@
-import { ArrowRightCircleIcon, HomeIcon, ListBulletIcon, UserPlusIcon, UsersIcon } from "@heroicons/react/24/outline"
+import { ArrowRightCircleIcon, HomeIcon, ListBulletIcon, UsersIcon } from "@heroicons/react/24/outline"
 import { LeftMenuItem } from "../LeftMenuItemComponent"
 import { useState } from "react"
 
