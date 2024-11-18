@@ -32,7 +32,7 @@ export const SubjectItem4:ObjectContent = {
 export const MySubjects:React.FC = () => {
     return (
         <>
-            <div className="flex flex-col items-center w-full overflow-y-scroll sroll scrollbar-short">
+            <div className="flex flex-col items-center w-full">
                 <div className="flex flex-col w-2/3 rounded-lg shadow-lg gap-2">
                     <SubjectItem subjectObj={SubjectItem1}/>
                     <SubjectItem subjectObj={SubjectItem2}/>

@@ -2,6 +2,8 @@ import { useState } from "react"
 import { ProfileContentNav } from "./ProfileContentNavComponent"
 import { MyPosts } from "./ContentPanels/MyPostsComponent"
 import { MySubjects } from "./ContentPanels/MysubjectsComponent"
+import { TaggedPosts } from "./ContentPanels/TaggedPostsComponent"
+import { FriendsMenu } from "./ContentPanels/FriendsMenuComponent"
 
 export const ProfilePanelContent = () => {
     const [panel, setPanel] = useState("myposts")
@@ -19,6 +21,12 @@ export const ProfilePanelContent = () => {
                 break;
             case "subjects":
                 render = <MySubjects/>;
+                break
+            case "friends":
+                render = <FriendsMenu/>;
+                break
+            case "tagged":
+                render = <TaggedPosts/>;
                 break;
         }
 
